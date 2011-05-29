@@ -7,13 +7,4 @@ lib/pirate_bay/base.rb
 lib/pirate_bay/categories.rb
 lib/pirate_bay/result.rb
 lib/pirate_bay/result_set.rb
-searches/A%20walk%20to%20remember_1.html
-searches/Emily_1.html
-searches/Emily_Movies_1.html
-searches/Emily__.html
-searches/Lee_1.html
-searches/Something_1.html
-searches/The%20White%20Stripes_1.html
-searches/hercules.html
-searches/hercules_1.html
-searches/shoes_1.html
+tpb.gemspec

@@ -33,19 +33,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Rakefile">
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="25" selection-start="66" selection-end="66" vertical-scroll-proportion="0.06656101">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CHANGELOG" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CHANGELOG">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
+            <state line="2" column="0" selection-start="18" selection-end="18" vertical-scroll-proportion="0.044374008">
               <folding />
             </state>
           </provider>
@@ -54,7 +45,34 @@
       <file leaf-file-name="base.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/pirate_bay/base.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="28" selection-start="374" selection-end="374" vertical-scroll-proportion="-5.04">
+            <state line="9" column="28" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Manifest" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manifest">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tpb.gemspec" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tpb.gemspec">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="32" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Rakefile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="14" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,24 +91,6 @@
         <entry file="file://$PROJECT_DIR$/lib/pirate_bay/result.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="26" column="0" selection-start="937" selection-end="937" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="categories.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/pirate_bay/categories.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="6" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parser.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.2-p136@tpb/gems/nokogiri-1.4.4/lib/nokogiri/css/parser.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="0" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -128,6 +128,8 @@
         <option value="$PROJECT_DIR$/lib/pirate_bay/result_set.rb" />
         <option value="$PROJECT_DIR$/lib/pirate_bay.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
+        <option value="$PROJECT_DIR$/tpb.gemspec" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -215,10 +217,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
-    <property name="options.searchVisible" value="true" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Ruby.pirate_bay">
     <configuration default="false" name="tpb" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
@@ -315,7 +317,6 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24960254" sideWeight="0.67021275" order="0" side_tool="false" content_ui="tabs" />
@@ -325,6 +326,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -363,11 +365,19 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CHANGELOG">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pirate_bay/categories.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="6" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.2-p136@tpb/gems/nokogiri-1.4.4/lib/nokogiri/css/parser.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="0" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="77" column="0" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/junk.html">
@@ -375,32 +385,14 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CHANGELOG">
+    <entry file="file://$PROJECT_DIR$/lib/pirate_bay.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pirate_bay/categories.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="6" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="10" column="3" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/pirate_bay/result.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="937" selection-end="937" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pirate_bay/base.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="28" selection-start="374" selection-end="374" vertical-scroll-proportion="-5.04">
-          <folding />
-        </state>
+        <state line="26" column="0" selection-start="937" selection-end="937" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/pirate_bay/result_set.rb">
@@ -410,16 +402,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pirate_bay.rb">
+    <entry file="file://$PROJECT_DIR$/lib/pirate_bay/base.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="3" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0">
+        <state line="9" column="28" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="25" selection-start="66" selection-end="66" vertical-scroll-proportion="0.06656101">
+        <state line="1" column="14" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpb.gemspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="32" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manifest">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="18" selection-end="18" vertical-scroll-proportion="0.044374008">
           <folding />
         </state>
       </provider>

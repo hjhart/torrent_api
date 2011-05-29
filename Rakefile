@@ -1,5 +1,12 @@
 require 'echoe'
-Echoe.new('pirate_bay')
+Echoe.new('tpb', '0.0.1') do |p|
+  p.description = "A API to query TPB"
+  p.url = "http://www.github.com/hjhart/tpb"
+  p.author = "James Hart"
+  p.email = "hjhart@gmail.com"
+  p.ignore_pattern = ["tmp/*", "scripts/*", "searches/*"]
+  p.development_dependencies = []
+end
 
 task :default => :console
 
