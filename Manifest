@@ -1,5 +1,6 @@
 CHANGELOG
 Manifest
+README.rdoc
 Rakefile
 junk.html
 lib/pirate_bay.rb
@@ -7,4 +8,3 @@ lib/pirate_bay/base.rb
 lib/pirate_bay/categories.rb
 lib/pirate_bay/result.rb
 lib/pirate_bay/result_set.rb
-tpb.gemspec

@@ -1,11 +1,11 @@
 require 'echoe'
-Echoe.new('tpb', '0.0.1') do |p|
+Echoe.new('tpb', '0.0.2') do |p|
   p.description = "A API to query TPB"
   p.url = "http://www.github.com/hjhart/tpb"
   p.author = "James Hart"
   p.email = "hjhart@gmail.com"
   p.ignore_pattern = ["tmp/*", "scripts/*", "searches/*"]
-  p.development_dependencies = []
+  p.development_dependencies = ['nokogiri']
 end
 
 task :default => :console
