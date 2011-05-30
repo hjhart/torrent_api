@@ -1,5 +1,5 @@
 require 'echoe'
-Echoe.new('tpb', '0.0.2') do |p|
+Echoe.new('tpb', '0.0.3') do |p|
   p.description = "A API to query TPB"
   p.url = "http://www.github.com/hjhart/tpb"
   p.author = "James Hart"
