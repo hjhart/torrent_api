@@ -1,0 +1,4 @@
+TODO
+Need to add/remove dependencies - awesome_print aand nokogiri
+Update Readme
+Need to get rid of the caching capabilities or just make them unintrusive. (No file structure changes)
