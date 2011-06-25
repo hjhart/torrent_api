@@ -4,7 +4,7 @@ Echoe.new('torrent_api', '0.0.4') do |p|
   p.url = "http://www.github.com/hjhart/torrent_api"
   p.author = "James Hart"
   p.email = "hjhart@gmail.com"
-  p.ignore_pattern = ["tmp/**/*", "scripts/*", "searches/*"]
+  p.ignore_pattern = ["tmp/**/*", "scripts/*"]
   p.development_dependencies = ['nokogiri', 'hpricot']
 end
 

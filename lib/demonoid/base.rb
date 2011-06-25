@@ -36,7 +36,7 @@ module Demonoid
     end
 
     def cached_filename
-      File.join("searches", "#{search_string}_#{category_id}_#{page}.html")
+      File.join("tmp", "searches", "#{search_string}_#{category_id}_#{page}.html")
     end
 
     def fetch_search_results
