@@ -1,6 +1,6 @@
 CHANGELOG
 Manifest
-README.rdoc
+README.markdown
 Rakefile
 lib/demonoid/base.rb
 lib/demonoid/result.rb
@@ -10,7 +10,6 @@ lib/pirate_bay/categories.rb
 lib/pirate_bay/result.rb
 lib/pirate_bay/result_set.rb
 lib/torrent_api.rb
-lib/torrent_api/torrent.rb
 lib/torrent_reactor/base.rb
 lib/torrent_reactor/result.rb
 lib/torrent_reactor/result_set.rb
