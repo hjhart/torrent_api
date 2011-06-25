@@ -51,7 +51,7 @@ class TorrentApi
 
       results = handler.execute
     end
-    results
+    @results = results
   end
 end
 

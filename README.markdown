@@ -13,15 +13,26 @@ Using Nokogiri or Hpricot, it takes a search term (and sometimes a category) and
 
 ### Usage
 
-#### Query all torrent websites
-
-    torrents = TorrentApi.new(:all, 'the royal tanenbaums')
-
 #### Search the default service (the pirate bay)
 
     t = TorrentApi.new
     t.search_term = 'james and the giant peach'
     results = t.search
+
+#### Query all torrent websites and work with those torrents
+
+    torrents = TorrentApi.new(:all, 'the royal tenenbaums') # buggy as of 0.0.9
+    torrent = torrents.first
+    torrent.name
+    => "The.Royal.Tenenbaums.XviD.DVD-Rip"
+    torrent.seeds
+    => 128
+    torrent.size # size is returned in bytes
+    => 702840000.0
+
+#### Torrent methods
+
+    :name, :seeds, :leeches, :category, :link, :magnet_link, :status, :size
 
 #### Select a service to use and search
 
@@ -30,12 +41,9 @@ Using Nokogiri or Hpricot, it takes a search term (and sometimes a category) and
     t.search_term = 'james and the giant peach'
     results = t.search
 
-#### Shorthand
+#### Shorthand query all
 
     TorrentApi.new(:all, "james and the giant peach")`
-
-
-
 
 ### Available services
 
@@ -47,7 +55,7 @@ Using Nokogiri or Hpricot, it takes a search term (and sometimes a category) and
 
 Add more torrent sites!
 
-### To do:
+### To do
 * Need to fix demonoid. Still buggy with newer movies.
 * Refactor all three search engines to use a shared torrent model
 * More search engines!
