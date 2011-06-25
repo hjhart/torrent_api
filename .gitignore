@@ -1,3 +1,5 @@
 searches/*
 .idea/
 junk**
+.DS_Store
+tmp/

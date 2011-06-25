@@ -1,4 +1,6 @@
 TODO
+Need to fix demonoid. Still buggy with newer movies.
+Refactor all three search engines to use a shared torrent model
+More search engines!
 Need to add/remove dependencies - awesome_print aand nokogiri
 Update Readme
-Need to get rid of the caching capabilities or just make them unintrusive. (No file structure changes)

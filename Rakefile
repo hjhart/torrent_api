@@ -1,15 +1,15 @@
 require 'echoe'
-Echoe.new('tpb', '0.0.3') do |p|
-  p.description = "A API to query TPB"
-  p.url = "http://www.github.com/hjhart/tpb"
+Echoe.new('torrent_api', '0.0.4') do |p|
+  p.description = "An API to query popular torrent websites"
+  p.url = "http://www.github.com/hjhart/torrent_api"
   p.author = "James Hart"
   p.email = "hjhart@gmail.com"
-  p.ignore_pattern = ["tmp/*", "scripts/*", "searches/*"]
-  p.development_dependencies = ['nokogiri']
+  p.ignore_pattern = ["tmp/**/*", "scripts/*", "searches/*"]
+  p.development_dependencies = ['nokogiri', 'hpricot']
 end
 
 task :default => :console
 
 task :console do
-  sh "irb -rubygems -r ./lib/pirate_bay.rb"
+  sh "irb -rubygems -r ./lib/torrent_api.rb"
 end

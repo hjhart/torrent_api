@@ -2,7 +2,7 @@ module PirateBay
   class Search
     attr_accessor :search_string, :category_id, :page, :caching, :results
 
-    def initialize(search_string, category=0)
+    def initialize(search_string, category='movies')
       self.search_string = URI.encode(search_string)
       self.category_id = PirateBay::Categories::IDS[category.upcase.strip.gsub(/S$/, "").to_sym] unless category == 0
       self.page = -1
@@ -16,7 +16,7 @@ module PirateBay
       else
         content = fetch_search_results
 
-        FileUtils.mkdir_p("searches")
+        FileUtils.mkdir_p("tmp/searches")
         File.open(cached_filename, "w") do |f|
           f.write(content)
         end
@@ -37,7 +37,7 @@ module PirateBay
     end
 
     def cached_filename
-      File.join("searches", "#{search_string}_#{category_id}_#{page}.html")
+      File.join("tmp", "searches", "#{search_string}_#{category_id}_#{page}.html")
     end
 
     def fetch_search_results
