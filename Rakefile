@@ -1,8 +1,5 @@
 require 'echoe'
-Echoe.new('torrent_api', '0.0.9
-
-
-') do |p|
+Echoe.new('torrent_api', '0.1.0') do |p|
   p.description = "An API to query popular torrent websites"
   p.url = "http://www.github.com/hjhart/torrent_api"
   p.author = "James Hart"

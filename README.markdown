@@ -21,7 +21,7 @@ Using Nokogiri or Hpricot, it takes a search term (and sometimes a category) and
 
 #### Query all torrent websites and work with those torrents
 
-    torrents = TorrentApi.new(:all, 'the royal tenenbaums') # buggy as of 0.0.9
+    torrents = TorrentApi.new(:all, 'the royal tenenbaums')
     torrent = torrents.first
     torrent.name
     => "The.Royal.Tenenbaums.XviD.DVD-Rip"
@@ -49,14 +49,13 @@ Using Nokogiri or Hpricot, it takes a search term (and sometimes a category) and
 
 * TorrentReactor
 * The Piratey Bay
-* Demonoid (still buggy)
+* Demonoid
 
 ### How to help
 
 Add more torrent sites!
 
 ### To do
-* Need to fix demonoid. Still buggy with newer movies.
 * Refactor all three search engines to use a shared torrent model
 * More search engines!
 * Need to add/remove dependencies - awesome_print and nokogiri

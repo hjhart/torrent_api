@@ -56,18 +56,18 @@ module Demonoid
 
       demonoid_row = []
       demonoid_table = doc.search('.ctable_content_no_pad table tr')
-      demonoid_table = demonoid_table.select { |row| !(row.search('iframe').count == 1 || row.inner_html =~ /Sponsored links/)}
       demonoid_table.each_with_index do |row, index|
         next if (0..3).include? index # skip the first few rows. It's mostly junk.
         break if index == 154 # end of table
-        
-        demonoid_row << row
-        if index % 3 == 0 # this is the majority of the info
+
+        if row.search('td').count == 9 # the majority of the information is in this tr
+          demonoid_row << row
           result = Demonoid::Result.new(demonoid_row)
-          demonoid_row = []
           @results << result
-        elsif index % 3 == 1 # this contains the date of birth
-        elsif index % 3 == 2 #this contains the title and the cateogyr
+          demonoid_row = []
+        elsif row.search('td').count == 2 # this is a title/category row
+          demonoid_row << row
+        else # this is probably a date created, or some other row.
         end
       end
 

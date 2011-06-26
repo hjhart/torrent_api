@@ -3,16 +3,14 @@ module Demonoid
     attr_accessor :name, :seeds, :leeches, :category, :link, :magnet_link, :status, :size, :date_created, :detail_link
 
     def initialize(row = [])
-       date_string = row[0].search('.added_today').inner_html.match(/Added on (.*)/)
-       self.date_created = Time.parse(date_string[1]) if date_string
-       self.name = row[1].search('td')[1].search('a').inner_html
-       self.detail_link = row[1].search('td')[1].search('a').first.get_attribute('href')
-       self.link = row[2].search('td')[2].search('a').first.get_attribute('href')
-       self.magnet_link = row[2].search('td')[2].search('a')[1].get_attribute('href')
-       self.seeds = row[2].search('td')[6].search('font').inner_html.to_i
-       self.leeches = row[2].search('td')[7].search('font').inner_html.to_i
+       self.name = row[0].search('td')[1].search('a').inner_html
+       self.detail_link = row[0].search('td')[1].search('a').first.get_attribute('href')
+       self.link = row[1].search('td')[2].search('a').first.get_attribute('href')
+       self.magnet_link = row[1].search('td')[2].search('a')[1].get_attribute('href')
+       self.seeds = row[1].search('td')[6].search('font').inner_html.to_i
+       self.leeches = row[1].search('td')[7].search('font').inner_html.to_i
 
-       raw_filesize =  row[2].search('td')[3].inner_html
+       raw_filesize =  row[1].search('td')[3].inner_html
        self.size = Demonoid::Result.filesize_in_bytes(raw_filesize)
     end
 
