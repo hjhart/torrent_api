@@ -3,3 +3,5 @@ searches/*
 junk**
 .DS_Store
 tmp/
+.rvmrc
+

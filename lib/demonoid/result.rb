@@ -5,8 +5,9 @@ module Demonoid
     def initialize(row = [])
        self.name = row[0].search('td')[1].search('a').inner_html
        self.detail_link = row[0].search('td')[1].search('a').first.get_attribute('href')
-       self.link = row[1].search('td')[2].search('a').first.get_attribute('href')
-       self.magnet_link = row[1].search('td')[2].search('a')[1].get_attribute('href')
+       base_url = "http://www.demonoid.me"
+       self.link = base_url + row[1].search('td')[2].search('a').first.get_attribute('href')
+       self.magnet_link = base_url + row[1].search('td')[2].search('a')[1].get_attribute('href')
        self.seeds = row[1].search('td')[6].search('font').inner_html.to_i
        self.leeches = row[1].search('td')[7].search('font').inner_html.to_i
 
