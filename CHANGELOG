@@ -3,3 +3,4 @@
   v0.0.3 fixed minor issue with 0.0.2
   v0.0.9 Migrated from tpb to torrent_api (now includes torrent_reactor and demonoid as searches)
   v0.1.0 Fixed Demonoid. Stable performance on :all and :demonoid.
+  v0.1.1 Fixed Demonoid torrent links to be absolute, not relative.
