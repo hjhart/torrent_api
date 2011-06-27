@@ -4,3 +4,4 @@
   v0.0.9 Migrated from tpb to torrent_api (now includes torrent_reactor and demonoid as searches)
   v0.1.0 Fixed Demonoid. Stable performance on :all and :demonoid.
   v0.1.1 Fixed Demonoid torrent links to be absolute, not relative.
+  v0.1.2 Fixed PirateBay filesizes to be in bytes.

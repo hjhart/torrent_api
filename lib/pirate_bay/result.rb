@@ -18,8 +18,6 @@ module PirateBay
         magnet_link = nil
       end
 
-      raw_filesize = row.css(".detDesc").first.content.match(/Size (.*[G|M|K]iB)/i)[1]
-      filesize_in_bytes = PirateBay::Result.filesize_in_bytes(raw_filesize)
 
       self.name = row.css(".detName").first.content
       self.seeds = row.css("td")[2].content.to_i
@@ -28,7 +26,9 @@ module PirateBay
       self.link = row.css("td")[1].css("a[title='Download this torrent']").first[:href]
       self.magnet_link = magnet_link
       self.status = status
-      self.size = filesize_in_bytes
+
+      raw_filesize = row.css(".detDesc").first.content.match(/Size (.*[G|M|K]iB)/i)[1]
+      self.size = filesize_in_bytes(raw_filesize)
 
     end
 
@@ -36,7 +36,7 @@ module PirateBay
       "<PirateBay::Result @name => #{name}, @seeds => #{seeds}, @size => #{size}>"
     end
     
-    def self.filesize_in_bytes(filesize)
+    def filesize_in_bytes(filesize)
       match = filesize.match(/([\d.]+)(.*)/)
 
       if match
