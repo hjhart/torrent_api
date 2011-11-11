@@ -17,6 +17,8 @@ end
   require File.join(File.dirname(__FILE__), 'demonoid', filename)
 end
 
+require 'torrent_details'
+
 class TorrentApi
   attr_accessor :service, :search_term, :results
 
