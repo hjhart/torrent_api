@@ -10,14 +10,12 @@ require 'uri'
 %w(result base result_set).each do |filename|
   require File.join(File.dirname(__FILE__), 'torrent_reactor', filename)
 end
-%w(result base categories result_set).each do |filename|
+%w(result base categories details result_set).each do |filename|
   require File.join(File.dirname(__FILE__), 'pirate_bay', filename)
 end
 %w(result base result_set).each do |filename|
   require File.join(File.dirname(__FILE__), 'demonoid', filename)
 end
-
-require 'torrent_details'
 
 class TorrentApi
   attr_accessor :service, :search_term, :results

@@ -1,6 +1,6 @@
 module PirateBay
   class Result
-    attr_accessor :name, :seeds, :leeches, :category, :link, :magnet_link, :status, :size
+    attr_accessor :id, :name, :seeds, :leeches, :category, :link, :magnet_link, :status, :size
 
     def initialize(row = nil)
       if row.css("td")[1].css("img[alt='Trusted']").size > 0
@@ -18,7 +18,7 @@ module PirateBay
         magnet_link = nil
       end
 
-
+      self.id = row.inner_html.match(/torrent\/([\d]+)\//)[1]
       self.name = row.css(".detName").first.content
       self.seeds = row.css("td")[2].content.to_i
       self.leeches = row.css("td")[3].content.to_i

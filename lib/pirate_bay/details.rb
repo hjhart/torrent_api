@@ -1,0 +1,88 @@
+require 'rubygems'
+require 'nokogiri'
+module PirateBay
+  class Details
+    def to_s
+      "#<:yeah>"
+    end
+  
+  
+    def initialize(html)
+      @details_page_html = html
+      @comment_pages_html = []
+      @scores = []
+    end
+  
+    def fetch_comments(params)
+      index = params[:page] - 1
+      if @comment_pages_html[index].nil?
+        uri = URI.parse('http://thepiratebay.org/ajax_details_comments.php')
+        res = Net::HTTP.post_form(uri, params)
+        response = res.body
+        @comment_pages_html[index] = response
+      end
+      @comment_pages_html[index]
+    end
+  
+    def fetch_all_comments
+      comment_xhr_params.each do |params|
+        fetch_comments params
+      end
+    end
+        
+    def scores(type = :init)
+      if type == :full
+        fetch_all_comments if @comment_pages_html.empty?
+        full_html = @comment_pages_html.inject("") { |html, memo| memo += html }
+        document = Nokogiri::HTML(full_html)
+      else
+        document = Nokogiri::HTML(@details_page_html)
+      end
+    
+      scores = document.css('div.comment').map { |comment|
+        PirateBay::Details.search_for_ratings(comment.inner_html)
+      }
+      @scores = scores.reject { |r| r.empty? }
+    end
+  
+    def comment_xhr_params
+      document = Nokogiri::HTML(@details_page_html)    
+      comment_link = document.css('div.browse-coms a').first
+      params = PirateBay::Details.extract_xhr_params comment_link.attr('onclick')
+      results = Array.new(params[:pages]) { |i| i+1 }
+      results.map do |i|
+        { page: i, pages: params[:pages], crc: params[:crc], id: params[:id] }
+      end
+    end
+  
+    def self.extract_xhr_params(string)
+      page, pages, crc, id = /comPage\((\d+),(\d+),'(.+)', '(.+)'\);/.match(string).captures
+      page = page.to_i
+      pages = pages.to_i
+      { page: page, pages: pages, crc: crc, id: id }
+    end
+  
+  
+    def self.search_for_ratings string
+      video_score_matches = string.match(/(v|video) ?[:\=-]? ?([0-9]{1,2})/i)
+      audio_score_matches = string.match(/(a|audio) ?[:\=-]? ?([0-9]{1,2})/i)
+      ratings = {}
+      ratings[:v] = video_score_matches[2].to_i unless video_score_matches.nil?
+      ratings[:a] = audio_score_matches[2].to_i unless audio_score_matches.nil?
+      # puts "Incoming string of #{string} detected ratings of #{ratings}"
+      ratings
+    end
+  
+    def video_quality_average
+      video_scores = scores(:full).map { |score| score[:v] }.compact
+      sum_of_video_scores = video_scores.inject(0) { |score, memo| memo += score }
+      sum_of_video_scores / video_scores.size.to_f
+    end
+  
+    def audio_quality_average
+      audio_scores = scores(:full).map { |score| score[:a] }.compact
+      sum_of_audio_scores = audio_scores.inject(0) { |score, memo| memo += score }
+      sum_of_audio_scores / audio_scores.size.to_f
+    end
+  end
+end
