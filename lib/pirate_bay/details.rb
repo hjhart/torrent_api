@@ -3,14 +3,16 @@ require 'nokogiri'
 module PirateBay
   class Details
     def to_s
-      "#<:yeah>"
+      "#<PirateBay::Details: @id=#{@id}>"
     end
   
-  
-    def initialize(html)
+    def initialize(html, type = :full)
       @details_page_html = html
+      id_matches = html.match Regexp.new '<input type="hidden" name="id" value="(.*)"/>' rescue nil
+      @id = id_matches[1].to_i unless id_matches.nil?
       @comment_pages_html = []
       @scores = []
+      @type = type
     end
   
     def fetch_comments(params)
@@ -26,12 +28,13 @@ module PirateBay
   
     def fetch_all_comments
       comment_xhr_params.each do |params|
+        puts "  fetching comments for #{params[:page]} of #{params[:pages]}"
         fetch_comments params
       end
     end
         
-    def scores(type = :init)
-      if type == :full
+    def scores
+      if @type == :full
         fetch_all_comments if @comment_pages_html.empty?
         full_html = @comment_pages_html.inject("") { |html, memo| memo += html }
         document = Nokogiri::HTML(full_html)
@@ -46,13 +49,18 @@ module PirateBay
     end
   
     def comment_xhr_params
-      document = Nokogiri::HTML(@details_page_html)    
+      document = Nokogiri::HTML(@details_page_html)
       comment_link = document.css('div.browse-coms a').first
-      params = PirateBay::Details.extract_xhr_params comment_link.attr('onclick')
-      results = Array.new(params[:pages]) { |i| i+1 }
-      results.map do |i|
-        { page: i, pages: params[:pages], crc: params[:crc], id: params[:id] }
+      if comment_link.nil?
+        [{ page: 1, pages: 1, crc: "9b235c98e242f2617ae61dc416ec0de7", id: @id }]
+      else
+        params = PirateBay::Details.extract_xhr_params comment_link.attr('onclick')
+        results = Array.new(params[:pages]) { |i| i+1 }
+        results.map do |i|
+          { page: i, pages: params[:pages], crc: params[:crc], id: params[:id] }
+        end
       end
+      
     end
   
     def self.extract_xhr_params(string)
@@ -64,23 +72,25 @@ module PirateBay
   
   
     def self.search_for_ratings string
-      video_score_matches = string.match(/(v|video) ?[:\=-]? ?([0-9]{1,2})/i)
-      audio_score_matches = string.match(/(a|audio) ?[:\=-]? ?([0-9]{1,2})/i)
+      video_score_matches = string.match(/(v|video) ?[:\=-]? ?([0-9]\.[0-9]|[0-9]{1,2})/i)
+      audio_score_matches = string.match(/(a|audio) ?[:\=-]? ?([0-9]\.[0-9]|[0-9]{1,2})/i)
       ratings = {}
-      ratings[:v] = video_score_matches[2].to_i unless video_score_matches.nil?
-      ratings[:a] = audio_score_matches[2].to_i unless audio_score_matches.nil?
+      ratings[:v] = video_score_matches[2].to_f unless video_score_matches.nil?
+      ratings[:a] = audio_score_matches[2].to_f unless audio_score_matches.nil?
+      ratings.delete(:v) if ratings[:v] && ratings[:v] > 10
+      ratings.delete(:a) if ratings[:a] && ratings[:a] > 10
       # puts "Incoming string of #{string} detected ratings of #{ratings}"
       ratings
     end
-  
+    
     def video_quality_average
-      video_scores = scores(:full).map { |score| score[:v] }.compact
+      video_scores = scores.map { |score| score[:v] }.compact
       sum_of_video_scores = video_scores.inject(0) { |score, memo| memo += score }
       sum_of_video_scores / video_scores.size.to_f
     end
   
     def audio_quality_average
-      audio_scores = scores(:full).map { |score| score[:a] }.compact
+      audio_scores = scores.map { |score| score[:a] }.compact
       sum_of_audio_scores = audio_scores.inject(0) { |score, memo| memo += score }
       sum_of_audio_scores / audio_scores.size.to_f
     end

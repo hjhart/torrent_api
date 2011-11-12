@@ -6,3 +6,4 @@ end
 
 gem 'nokogiri'
 gem 'hpricot'
+gem 'awesome_print'

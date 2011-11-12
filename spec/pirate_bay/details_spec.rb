@@ -5,7 +5,16 @@ describe PirateBay::Details do
     it "should parse the page for scores and return an array of them" do
       html = File.open(File.join('spec', 'fixtures' , 'torrent_details_with_ratings.html'), 'r').read
       tp = PirateBay::Details.new html
-      tp.scores.should =~ [{:a => 10, :v => 10}, {:a => 8, :v => 9}, {:a => 10, :v => 10}, {:a => 10, :v => 10}, { :v => 8 }, {:a => 10, :v => 10}, {:a => 10, :v => 10}, {:a => 10, :v => 10} ]
+      tp.scores.should =~ [
+        {:a => 10.0, :v => 10.0}, 
+        {:a => 8.0, :v => 9.0}, 
+        {:a => 10.0, :v => 10.0}, 
+        {:a => 10.0, :v => 10.0}, 
+        { :v => 8.0 }, 
+        {:a => 10.0, :v => 10.0}, 
+        {:a => 10.0, :v => 10.0}, 
+        {:a => 10.0, :v => 10.0}
+     ]
     end
 
     it "should parse the page for scores and return an array of them" do
@@ -18,14 +27,27 @@ describe PirateBay::Details do
   describe ".search_for_ratings" do
     it "should detect a rating if it exists and return a hash" do
       ratings = PirateBay::Details.search_for_ratings("Thanks man. <br>\nA: 10<br>\nV: 10<br>\nMovie: 100")
-      ratings.should == { a: 10, v: 10 }
+      ratings.should == { a: 10.0, v: 10.0 }
     end
     
     it "should detect a string that states 'audio' and/or 'video' instead of A/V" do
       comment = "not in good quality\nAudio: 5\nVideo: 6"
       ratings = PirateBay::Details.search_for_ratings comment
-      ratings.should == { a: 5, v: 6 }
+      ratings.should == { a: 5.0, v: 6.0 }
     end
+    
+    it "should not accept an entry that isn't between 0 and 10" do
+      comment = "such good quality\nAudio: 56\nVideo: 6"
+      ratings = PirateBay::Details.search_for_ratings comment
+      ratings.should == { v: 6.0 }
+    end
+    
+    it "should be able to detect tenth's of a point" do
+      comment = "such good quality\nAudio: 5.6\nVideo: 6"
+      ratings = PirateBay::Details.search_for_ratings comment
+      ratings.should == { v: 6.0, a: 5.6 }
+    end
+    
   end
   
   describe "video_quality_average" do

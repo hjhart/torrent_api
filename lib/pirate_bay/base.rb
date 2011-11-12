@@ -39,6 +39,29 @@ module PirateBay
     def cached_filename
       File.join("tmp", "searches", "#{search_string}_#{category_id}_#{page}.html")
     end
+    
+    def get_quality
+      execute
+      results = @results.map do |result|
+        url = "http://www.thepiratebay.org/torrent/#{result.id}/"
+        html = open(url).read
+        p = PirateBay::Details.new html, :init
+        puts "Fetching results"
+        result = { 
+          :seeds => result.seeds, 
+          :size => result.size, 
+          :name => result.name, 
+          :video => p.video_quality_average, 
+          :audio => p.audio_quality_average, 
+          :url => url 
+        } 
+        puts "Results: #{result}"
+        result
+      end
+      
+      results.reject { |a| a[:video].nan? }.sort_by { |a| a[:video] }
+    end
+    
 
     def fetch_search_results
       url = "http://thepiratebay.org/search/#{search_string}/#{page}/7/#{category_id}" # highest seeded first
