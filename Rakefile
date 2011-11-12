@@ -1,11 +1,11 @@
 require 'echoe'
-Echoe.new('torrent_api', '0.2.0') do |p|
+Echoe.new('torrent_api', '0.2.1') do |p|
   p.description = "An API to query popular torrent websites"
   p.url = "http://www.github.com/hjhart/torrent_api"
   p.author = "James Hart"
   p.email = "hjhart@gmail.com"
   p.ignore_pattern = ["tmp/**/*", "scripts/*", "spec/**/*", "Gemfile*"]
-  p.development_dependencies = ['nokogiri', 'hpricot']
+  p.runtime_dependencies = ['nokogiri', 'hpricot']
 end
 
 task :default => :console

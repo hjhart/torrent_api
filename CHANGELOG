@@ -6,3 +6,4 @@
   v0.1.1 Fixed Demonoid torrent links to be absolute, not relative.
   v0.1.2 Fixed PirateBay filesizes to be in bytes.
   v0.2.0 Added some PirateBay analysis methods for comments and their video/audio ratings. Specs begin.
+  v0.2.1 Added more api methods to the video/audio ratings 

@@ -53,7 +53,11 @@ module PirateBay
           :name => result.name, 
           :video => p.video_quality_average, 
           :audio => p.audio_quality_average, 
-          :url => url 
+          :url => url,
+          :video_votes => p.video_scores.size,
+          :audio_votes => p.audio_scores.size,
+          :video_votes_sum => p.video_quality_score_sum,
+          :audio_votes_sum => p.audio_quality_score_sum
         } 
         puts "Results: #{result}"
         result
