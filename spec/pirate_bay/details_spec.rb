@@ -4,7 +4,7 @@ describe PirateBay::Details do
   describe "#scores" do
     it "should parse the page for scores and return an array of them" do
       html = File.open(File.join('spec', 'fixtures' , 'torrent_details_with_ratings.html'), 'r').read
-      tp = PirateBay::Details.new html
+      tp = PirateBay::Details.new html, :init
       tp.scores.should =~ [
         {:a => 10.0, :v => 10.0}, 
         {:a => 8.0, :v => 9.0}, 
@@ -19,7 +19,7 @@ describe PirateBay::Details do
 
     it "should parse the page for scores and return an array of them" do
       html = File.open(File.join('spec', 'fixtures' , 'torrent_details_with_ratings_2.html'), 'r').read
-      tp = PirateBay::Details.new html
+      tp = PirateBay::Details.new html, :init
       tp.scores.should =~ [{ a: 8, v: 6 }, { a: 10, v:10 }, { v: 7, a: 9 }, { a: 10, v: 9 }, { a: 5, v: 5 }, { a: 9, v: 9 }, { a: 9, v: 6 }]
     end
   end
@@ -53,7 +53,7 @@ describe PirateBay::Details do
   describe "video_quality_average" do
     it "should take all of the ratings and average them together." do
       tp = PirateBay::Details.new "fake html"
-      averages = tp.should_receive(:scores).twice.and_return [{:a => 10, :v => 10}, {:a => 8, :v => 9}, { :a => 4 }, { :a => 3 }, { :v => 5 }]
+      averages = tp.should_receive(:scores).exactly(4).times.and_return [{:a => 10, :v => 10}, {:a => 8, :v => 9}, { :a => 4 }, { :a => 3 }, { :v => 5 }]
       tp.video_quality_average.should == 8
       tp.audio_quality_average.should == 6.25
     end

@@ -82,17 +82,29 @@ module PirateBay
       # puts "Incoming string of #{string} detected ratings of #{ratings}"
       ratings
     end
+
+    def video_scores
+      scores.map { |score| score[:v] }.compact
+    end
+    
+    def video_quality_score_sum
+      video_scores.inject(0) { |score, memo| memo += score }
+    end
     
     def video_quality_average
-      video_scores = scores.map { |score| score[:v] }.compact
-      sum_of_video_scores = video_scores.inject(0) { |score, memo| memo += score }
-      sum_of_video_scores / video_scores.size.to_f
+      video_quality_score_sum / video_scores.size.to_f
     end
-  
+    
+    def audio_scores
+      scores.map { |score| score[:a] }.compact
+    end
+
+    def audio_quality_score_sum
+      audio_scores.inject(0) { |score, memo| memo += score }
+    end
+    
     def audio_quality_average
-      audio_scores = scores.map { |score| score[:a] }.compact
-      sum_of_audio_scores = audio_scores.inject(0) { |score, memo| memo += score }
-      sum_of_audio_scores / audio_scores.size.to_f
+      audio_quality_score_sum / audio_scores.size.to_f
     end
   end
 end

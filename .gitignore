@@ -5,3 +5,4 @@ junk**
 tmp/
 .rvmrc
 
+pkg/*
