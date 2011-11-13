@@ -57,6 +57,13 @@ describe PirateBay::Details do
       tp.video_quality_average.should == 8
       tp.audio_quality_average.should == 6.25
     end
+
+    it "it should never return NaN" do
+      tp = PirateBay::Details.new "fake html"
+      averages = tp.should_receive(:scores).exactly(4).times.and_return []
+      tp.video_quality_average.should == 0
+      tp.audio_quality_average.should == 0
+    end
   end  
   
   describe "extract xhr parameters" do

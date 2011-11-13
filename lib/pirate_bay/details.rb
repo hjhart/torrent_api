@@ -92,7 +92,8 @@ module PirateBay
     end
     
     def video_quality_average
-      video_quality_score_sum / video_scores.size.to_f
+      total_votes = [video_scores.size.to_f, 1].max
+      video_quality_score_sum / total_votes
     end
     
     def audio_scores
@@ -104,7 +105,8 @@ module PirateBay
     end
     
     def audio_quality_average
-      audio_quality_score_sum / audio_scores.size.to_f
+      total_votes = [audio_scores.size.to_f, 1].max.to_f
+      audio_quality_score_sum / total_votes
     end
   end
 end
