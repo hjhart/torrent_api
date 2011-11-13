@@ -28,7 +28,6 @@ module PirateBay
   
     def fetch_all_comments
       comment_xhr_params.each do |params|
-        puts "  fetching comments for #{params[:page]} of #{params[:pages]}"
         fetch_comments params
       end
     end
