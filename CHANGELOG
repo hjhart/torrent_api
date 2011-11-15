@@ -8,3 +8,4 @@
   v0.2.0 Added some PirateBay analysis methods for comments and their video/audio ratings. Specs begin.
   v0.2.1 Added more api methods to the video/audio ratings 
   v0.2.2 No more NaN's being returned by average methods
+  v0.2.3 Ruby 1.8.7 Support
