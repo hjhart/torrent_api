@@ -51,12 +51,12 @@ module PirateBay
       document = Nokogiri::HTML(@details_page_html)
       comment_link = document.css('div.browse-coms a').first
       if comment_link.nil?
-        [{ page: 1, pages: 1, crc: "9b235c98e242f2617ae61dc416ec0de7", id: @id }]
+        [{ :page => 1, :pages => 1, :crc => "9b235c98e242f2617ae61dc416ec0de7", :id => @id }]
       else
         params = PirateBay::Details.extract_xhr_params comment_link.attr('onclick')
         results = Array.new(params[:pages]) { |i| i+1 }
         results.map do |i|
-          { page: i, pages: params[:pages], crc: params[:crc], id: params[:id] }
+          { :page => i, :pages => params[:pages], :crc => params[:crc], :id => params[:id] }
         end
       end
       
@@ -66,7 +66,7 @@ module PirateBay
       page, pages, crc, id = /comPage\((\d+),(\d+),'(.+)', '(.+)'\);/.match(string).captures
       page = page.to_i
       pages = pages.to_i
-      { page: page, pages: pages, crc: crc, id: id }
+      { :page => page, :pages => pages, :crc => crc, :id => id }
     end
   
   

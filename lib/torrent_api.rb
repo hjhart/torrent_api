@@ -1,3 +1,5 @@
+require 'rubygems'
+
 require 'fileutils'
 require 'net/http'
 
