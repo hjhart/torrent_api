@@ -37,10 +37,9 @@ module PirateBay
     end
     
     def sanitize_filename(filename)
-      returning filename.strip do |name|
-       name.gsub! /^.*(\\|\/)/, ''
-       name.gsub!(/[^0-9A-Za-z.\-]/, 'x')
-      end
+      filename = filename.gsub(/[^0-9A-Za-z.\-]/, 'x')
+      filename = filename.gsub(/^.*(\\|\/)/, '')
+      filename.strip
     end
 
     def cached_filename
