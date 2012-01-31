@@ -35,9 +35,16 @@ module PirateBay
       next_page(doc)
 
     end
+    
+    def sanitize_filename(filename)
+      returning filename.strip do |name|
+       name.gsub! /^.*(\\|\/)/, ''
+       name.gsub!(/[^0-9A-Za-z.\-]/, 'x')
+      end
+    end
 
     def cached_filename
-      File.join("tmp", "searches", "#{search_string}_#{category_id}_#{page}.html")
+      File.join("tmp", "searches", "#{sanitize_filename(search_string)}_#{category_id}_#{page}.html")
     end
     
     def get_quality
