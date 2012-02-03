@@ -11,3 +11,4 @@
   v0.2.3 Ruby 1.8.7 Support
   v0.2.4 Fixed an issue with bad filename creation in caching
   v0.2.5 Seriously, fixed a fix.
+  v0.2.6 Now uses the .se TLD
