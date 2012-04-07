@@ -75,7 +75,7 @@ module PirateBay
 
     def fetch_search_results
       url = "http://thepiratebay.se/search/#{search_string}/#{page}/7/#{category_id}" # highest seeded first
-      `curl #{url}`
+      open(url, { "User-Agent" => "libcurl-agent/1.0" }).read
     end
 
     private
