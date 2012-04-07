@@ -75,13 +75,7 @@ module PirateBay
 
     def fetch_search_results
       url = "http://thepiratebay.se/search/#{search_string}/#{page}/7/#{category_id}" # highest seeded first
-
-      uri = URI.parse(url)
-
-      http = Net::HTTP.new(uri.host, uri.port)
-      response = http.request(Net::HTTP::Get.new(uri.request_uri))
-
-      response.body
+      `curl #{url}`
     end
 
     private
