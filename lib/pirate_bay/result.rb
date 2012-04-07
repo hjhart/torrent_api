@@ -19,11 +19,11 @@ module PirateBay
       end
 
       self.id = row.inner_html.match(/torrent\/([\d]+)\//)[1]
-      self.name = row.css(".detName").first.content
+      self.name = row.css(".detName").first.content.strip
       self.seeds = row.css("td")[2].content.to_i
       self.leeches = row.css("td")[3].content.to_i
       self.category = row.css("td")[0].css("a").map(&:content).join(" > ")
-      self.link = row.css("td")[1].css("a[title='Download this torrent']").first[:href]
+      self.link = "http://torrents.thepiratebay.se/#{id}/#{name}.torrent" 
       self.magnet_link = magnet_link
       self.status = status
 
