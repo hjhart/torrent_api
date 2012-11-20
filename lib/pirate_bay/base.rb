@@ -92,7 +92,8 @@ module PirateBay
       end
 
       doc.css("#searchResult tr").each_with_index do |row, index|
-        next if index == 0
+        next if (index == 0)
+        next if (row.css("td").size <= 1)
         result = PirateBay::Result.new(row)
         @results << result
       end
