@@ -12,12 +12,10 @@ module PirateBay
   class Search
     attr_accessor :search_string, :category_id, :page, :caching, :results
 
-    def initialize(search_string, category='movies', base_url = nil)
+    def initialize(search_string, category='movies')
       self.search_string = URI.encode(search_string)
       self.category_id = PirateBay::Categories::IDS[category.upcase.strip.gsub(/S$/, "").to_sym] unless category == 0
       self.page = -1
-      @@tpb_base_url = base_url if base_url
-
       @results = PirateBay::ResultSet.new(self)
     end
 

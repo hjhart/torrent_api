@@ -22,11 +22,11 @@ end
 class TorrentApi
   attr_accessor :service, :search_term, :results
 
-  def initialize(service=:pirate_bay, search_term=nil)
+  def initialize(service=:pirate_bay, search_term=nil, pirate_bay_custom_url=nil)
     @service = service
     @search_term = search_term
-
     @results = search if @search_term
+    PirateBay::tpb_base_url = pirate_bay_custom_url.gsub(/\/\Z/, '') if pirate_bay_custom_url
   end
 
   def search
