@@ -1,11 +1,22 @@
 module PirateBay
+  @@tpb_base_url = "http://www.thepiratebay.se"
+
+  def self.tpb_base_url
+    @@tpb_base_url
+  end
+
+  def self.tpb_base_url= v
+   @@tpb_base_url = v
+  end
+
   class Search
     attr_accessor :search_string, :category_id, :page, :caching, :results
 
-    def initialize(search_string, category='movies')
+    def initialize(search_string, category='movies', base_url = nil)
       self.search_string = URI.encode(search_string)
       self.category_id = PirateBay::Categories::IDS[category.upcase.strip.gsub(/S$/, "").to_sym] unless category == 0
       self.page = -1
+      @@tpb_base_url = base_url if base_url
 
       @results = PirateBay::ResultSet.new(self)
     end
@@ -49,7 +60,7 @@ module PirateBay
     def get_quality
       execute
       results = @results.map do |result|
-        url = "http://www.thepiratebay.se/torrent/#{result.id}/"
+        url = "#{PirateBay::tpb_base_url}/torrent/#{result.id}/"
         html = open(url).read
         p = PirateBay::Details.new html, :init
         puts "Fetching results"
@@ -74,7 +85,7 @@ module PirateBay
     
 
     def fetch_search_results
-      url = "http://thepiratebay.se/search/#{search_string}/#{page}/7/#{category_id}" # highest seeded first
+      url = "#{PirateBay::tpb_base_url}/search/#{search_string}/#{page}/7/#{category_id}" # highest seeded first
       open(url, { "User-Agent" => "libcurl-agent/1.0" }).read
     end
 
