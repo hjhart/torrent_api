@@ -1,12 +1,12 @@
 module PirateBay
-  @@tpb_base_url = "http://www.thepiratebay.se"
+  @tpb_base_url = "http://www.thepiratebay.se"
 
   def self.tpb_base_url
-    @@tpb_base_url
+    @tpb_base_url
   end
 
   def self.tpb_base_url= v
-   @@tpb_base_url = v
+   @tpb_base_url = v
   end
 
   class Search
