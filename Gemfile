@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 group :test do
-  gem 'rspec', '~>2.7'
+  gem 'rspec', '~>3.2'
 end
 
 gem 'nokogiri'

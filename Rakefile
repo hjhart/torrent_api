@@ -13,3 +13,9 @@ task :default => :console
 task :console do
   sh "irb -rubygems -r ./lib/torrent_api.rb"
 end
+
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+end
