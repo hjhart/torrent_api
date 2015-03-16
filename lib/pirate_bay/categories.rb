@@ -34,10 +34,11 @@ module PirateBay
         :E_BOOKS => 601,
         :COMICS => 602,
         :PICTURES => 603,
-        :COVERS => 604
+        :COVERS => 604,
     }
 
     IDS = {
+        ALL:  0,
         :APPLICATION => 100,
         :MOVIE => 200,
         :AUDIO => 300,
