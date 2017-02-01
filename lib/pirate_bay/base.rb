@@ -1,7 +1,7 @@
 module PirateBay
   class Search
     attr_accessor :search_string, :category_id, :page, :caching, :results
-    BASE_URL = 'https://thepiratebay.se'
+    BASE_URL = 'https://thepiratebay.org'
 
     def initialize(search_string, category='movies')
       @search_string = URI.encode(search_string)
