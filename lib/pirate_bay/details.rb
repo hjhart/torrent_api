@@ -18,7 +18,7 @@ module PirateBay
     def fetch_comments(params)
       index = params[:page] - 1
       if @comment_pages_html[index].nil?
-        uri = URI.parse('http://thepiratebay.se/ajax_details_comments.php')
+        uri = URI.parse("#{PirateBay::Search::BASE_URL}/ajax_details_comments.php")
         res = Net::HTTP.post_form(uri, params)
         response = res.body
         @comment_pages_html[index] = response

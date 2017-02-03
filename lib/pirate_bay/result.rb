@@ -23,7 +23,7 @@ module PirateBay
       self.seeds = row.css("td")[2].content.to_i
       self.leeches = row.css("td")[3].content.to_i
       self.category = row.css("td")[0].css("a").map(&:content).join(" > ")
-      self.link = "http://torrents.thepiratebay.se/#{id}/#{name}.torrent" 
+      self.link = "https://torrents.#{PirateBay::Search::TPB_HOST}/#{id}/#{name}.torrent" 
       self.magnet_link = magnet_link
       self.status = status
 
