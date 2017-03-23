@@ -14,3 +14,4 @@
   v0.2.6 Now uses the .se TLD
   v0.2.7 We still have torrent support after piratebay took it away. (Thanks rylwin)
   v0.2.8 Fix to avoid pirate bay's advertisements
+  v0.3.0 Merge PRs to fix URL for pirate bay
